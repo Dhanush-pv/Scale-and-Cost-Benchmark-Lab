@@ -1,0 +1,24 @@
+project:
+  name: Scale and Cost Benchmark Lab
+  author: Dhanush
+  week: 1
+  seed: 42
+
+# Start small; increase only after checking available disk and memory.
+dataset:
+  format: parquet
+  rows: 100000
+  batch_size: 50000
+  output: artifacts/data/transactions.parquet
+
+benchmark:
+  warmup_iterations: 1
+  measured_iterations: 5
+  cache_mode: warm
+  result_file: artifacts/results/benchmark-results.jsonl
+  workloads:
+    - daily_revenue
+    - merchant_rank
+    - customer_activity
+    - country_channel_mix
+    - hourly_decline_rate
